@@ -6,7 +6,14 @@ const controlCheckbox = document.getElementById( "mainCheckbox" );
 const addBtn = document.getElementById( "addNewObserver" );
 const container = document.getElementById( "observersContainer" );
 
-const mainSubject = new Subject();
+const mainSubject = Object.assign(controlCheckbox, new Subject());
+
+console.log(mainSubject);
+
+mainSubject.onclick = () => {
+    console.log("click");
+    mainSubject.notify(mainSubject.checked);
+}
 
 addBtn.onclick = addNewObserver;
  
